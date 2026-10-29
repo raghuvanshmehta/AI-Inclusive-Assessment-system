@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Inclusive Assessment System - Learning That Adapts to You</title>
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Immediate accessibility setup to prevent FOUC -->
+  <script src="js/storage.js"></script>
+  <script src="js/accessibility.js"></script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Demo Notice Banner -->
+  <div class="demo-banner" role="region" aria-label="Demo mode announcement">
+    <div class="demo-banner-content">
+      <span>Interactive Prototype • AI models and backend authentication connect via clean integration endpoints.</span>
+    </div>
+    <div>
+      <a href="login.html">Quick Demo Sign In &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Landing Header -->
+  <header class="landing-header" role="banner">
+    <div class="landing-nav-container">
+      <a href="index.html" class="app-brand" aria-label="AI Inclusive Assessment Home">
+        <div class="app-brand-icon" aria-hidden="true">&#9733;</div>
+        <span>AI Inclusive Assessment</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="landing-nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#howItWorks">How It Works</a></li>
+          <li><a href="#accessibility">Accessibility</a></li>
+          <li><a href="help.html">About & AI Model</a></li>
+        </ul>
+      </nav>
+
+      <div class="landing-nav-cta">
+        <a href="login.html" class="btn btn-outline">Log In</a>
+        <a href="register.html" class="btn btn-primary">Create Account</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- Hero Section -->
+    <section class="hero-section" aria-labelledby="heroHeading">
+      <div class="hero-container">
+        <div class="hero-pill">&#10024; Accessible & Inclusive EdTech</div>
+        <h1 id="heroHeading" class="hero-title">Learning That Adapts to You</h1>
+        <p class="hero-description">
+          An inclusive assessment platform designed to support different learning preferences, 
+          help students practise with confidence, and make learning progress easier to understand.
+        </p>
+        <div class="hero-actions">
+          <a href="register.html" class="btn btn-primary btn-lg">Get Started</a>
+          <a href="#features" class="btn btn-outline btn-lg">Explore Features</a>
+          <a href="dashboard.html" class="btn btn-secondary btn-lg">Live Demo Dashboard</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section section-alt" aria-labelledby="featuresHeading">
+      <div class="section-header">
+        <h2 id="featuresHeading">Engineered for Every Learner</h2>
+        <p>A thoughtfully designed assessment environment offering customized sensory, cognitive, and visual accommodations.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Card 1 -->
+        <article class="feature-card">
+          <div class="feature-icon-wrapper" aria-hidden="true">&#128100;</div>
+          <h3 class="feature-title">Personalized Learning</h3>
+          <p class="feature-text">
+            Tailor assessment pacing, visual styling, and cognitive aids to fit your personal learning style without friction or stigma.
+          </p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="feature-card">
+          <div class="feature-icon-wrapper" aria-hidden="true">&#9881;</div>
+          <h3 class="feature-title">Accessible Assessments</h3>
+          <p class="feature-text">
+            Full support for screen readers, high contrast displays, dyslexic typography, keyboard shortcuts, and one-question focus mode.
+          </p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="feature-card">
+          <div class="feature-icon-wrapper" aria-hidden="true">&#128200;</div>
+          <h3 class="feature-title">Progress Tracking</h3>
+          <p class="feature-text">
+            Detailed analytics, accuracy trends, and mastery distributions across subjects, designed for clarity and confidence.
+          </p>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="feature-card">
+          <div class="feature-icon-wrapper" aria-hidden="true">&#129302;</div>
+          <h3 class="feature-title">AI-Assisted Practice</h3>
+          <p class="feature-text">
+            Prepared architecture for connection to predictive knowledge tracing models (ASSISTments research baseline) for adaptive difficulty.
+          </p>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="feature-card">
+          <div class="feature-icon-wrapper" aria-hidden="true">&#128293;</div>
+          <h3 class="feature-title">Learning Streaks</h3>
+          <p class="feature-text">
+            Build healthy study routines with daily practice goals, streak counters, and encouraging milestone achievements.
+          </p>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="feature-card">
+          <div class="feature-icon-wrapper" aria-hidden="true">&#128161;</div>
+          <h3 class="feature-title">Performance Insights</h3>
+          <p class="feature-text">
+            Review detailed question-by-question explanations immediately after submission to reinforce conceptual understanding.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="howItWorks" class="section" aria-labelledby="howItWorksHeading">
+      <div class="section-header">
+        <h2 id="howItWorksHeading">How It Works</h2>
+        <p>A simple, accessible workflow from sign up to skill mastery.</p>
+      </div>
+
+      <div class="steps-container">
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">1</div>
+          <h3>Create Account</h3>
+          <p>Register your student profile in seconds.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">2</div>
+          <h3>Choose Preferences</h3>
+          <p>Pick your learner category and accessibility presets.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">3</div>
+          <h3>Select a Subject</h3>
+          <p>Explore topics in Math, Science, English, or CS.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">4</div>
+          <h3>Attempt Assessment</h3>
+          <p>Answer questions with accessible timers and speech tools.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">5</div>
+          <h3>Review Results</h3>
+          <p>Understand mistakes with comprehensive explanations.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">6</div>
+          <h3>Track Progress</h3>
+          <p>Monitor your growth, daily goals, and streaks over time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessibility Showcase Section -->
+    <section id="accessibility" class="section section-alt" aria-labelledby="accessHeading">
+      <div class="section-header">
+        <h2 id="accessHeading">Four Dedicated Learner Categories</h2>
+        <p>Every student is unique. Choose your default accommodation profile with complete freedom to customize individual controls anytime.</p>
+      </div>
+
+      <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+        <!-- Category 1 -->
+        <div class="category-showcase-card">
+          <div class="category-showcase-header">
+            <div class="category-showcase-icon" style="background:#e0e7ff; color:#3730a3;" aria-hidden="true">&#128100;</div>
+            <div>
+              <h3>No Special Need</h3>
+              <span class="badge badge-category-none">Standard Interface</span>
+            </div>
+          </div>
+          <p class="feature-text">
+            Clean, modern interface with standard text sizing and spacing, while keeping all accessibility customization controls accessible.
+          </p>
+          <ul class="category-badge-list">
+            <li>Standard typography</li>
+            <li>Default spacing</li>
+            <li>Full customization access</li>
+          </ul>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="category-showcase-card">
+          <div class="category-showcase-header">
+            <div class="category-showcase-icon" style="background:#fef3c7; color:#92400e;" aria-hidden="true">&#128065;&#65039;</div>
+            <div>
+              <h3>Low Vision</h3>
+              <span class="badge badge-category-low-vision">High Contrast</span>
+            </div>
+          </div>
+          <p class="feature-text">
+            Enhanced visual contrast, enlarged text sizes (scalable up to 22px), high-visibility focus borders, and built-in text-to-speech read-aloud support.
+          </p>
+          <ul class="category-badge-list">
+            <li>Large scalable text</li>
+            <li>High-contrast palette</li>
+            <li>Read-Aloud speech synthesis</li>
+            <li>Zoom-friendly layout</li>
+          </ul>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="category-showcase-card">
+          <div class="category-showcase-header">
+            <div class="category-showcase-icon" style="background:#fce7f3; color:#9d174d;" aria-hidden="true">&#9889;</div>
+            <div>
+              <h3>ADHD</h3>
+              <span class="badge badge-category-adhd">Focus Mode</span>
+            </div>
+          </div>
+          <p class="feature-text">
+            Distraction-reduced single-question presentation, reduced animations, optional gentle break reminders, and focused progress milestones.
+          </p>
+          <ul class="category-badge-list">
+            <li>One question at a time</li>
+            <li>Reduced animations</li>
+            <li>Gentle break reminders</li>
+            <li>Minimal visual clutter</li>
+          </ul>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="category-showcase-card">
+          <div class="category-showcase-header">
+            <div class="category-showcase-icon" style="background:#ccfbf1; color:#115e59;" aria-hidden="true">&#128214;</div>
+            <div>
+              <h3>Dyslexia</h3>
+              <span class="badge badge-category-dyslexia">Readable Typography</span>
+            </div>
+          </div>
+          <p class="feature-text">
+            Dyslexia-friendly typography, increased line height (1.9x), relaxed letter spacing, left-aligned content, and clear answer separation.
+          </p>
+          <ul class="category-badge-list">
+            <li>Specialized font stack</li>
+            <li>Increased line & word spacing</li>
+            <li>Left-aligned text structure</li>
+            <li>Distinct answer panels</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 2.5rem;">
+        <a href="register.html" class="btn btn-primary btn-lg">Set Your Learning Preference</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="landing-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-brand-col">
+        <a href="index.html" class="app-brand" style="color: #ffffff;">
+          <div class="app-brand-icon" aria-hidden="true">&#9733;</div>
+          <span>AI Inclusive Assessment</span>
+        </a>
+        <p>
+          An inclusive educational assessment frontend empowering students with diverse learning needs through accessible, confidence-building practice.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="dashboard.html">Demo Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Accessibility</h4>
+        <ul class="footer-links">
+          <li><a href="accessibility.html">Accessibility Settings</a></li>
+          <li><a href="#accessibility">Learner Categories</a></li>
+          <li><a href="help.html#screenreaders">Screen Reader Guide</a></li>
+          <li><a href="help.html#keyboard">Keyboard Shortcuts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>About & Research</h4>
+        <ul class="footer-links">
+          <li><a href="help.html">Project Overview</a></li>
+          <li><a href="help.html#model">AI Model Integration</a></li>
+          <li><a href="help.html#privacy">Privacy & Terms</a></li>
+          <li><a href="help.html#faq">Support & FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 AI Inclusive Assessment System. Frontend Demonstration Prototype.</div>
+      <div>Designed with WCAG 2.1 AA accessibility guidelines in mind.</div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

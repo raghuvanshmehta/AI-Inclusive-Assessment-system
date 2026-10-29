@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Settings - AI Inclusive Assessment System</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/storage.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/auth.js"></script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to accessibility settings</a>
+
+  <div class="demo-banner">
+    <div class="demo-banner-content">
+      <span class="demo-badge">Inclusive Personalization</span>
+      <span>All adjustments take effect immediately across all platform pages without requiring a page refresh.</span>
+    </div>
+    <div>
+      <a href="dashboard.html">&larr; Return to Dashboard</a>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="app-brand">
+          <div class="app-brand-icon" aria-hidden="true">&#9733;</div>
+          <span>AI Inclusive</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Learning</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#127968;</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="subjects.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128218;</span>
+              <span>Browse Subjects</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="assessment-setup.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#9997;&#65039;</span>
+              <span>Take Assessment</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Analytics &amp; History</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="progress.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128200;</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="history.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128197;</span>
+              <span>Learning History</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="achievements.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#127942;</span>
+              <span>Achievements</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Preferences &amp; Support</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="accessibility.html" class="nav-link active">
+              <span class="nav-icon" aria-hidden="true">&#9881;</span>
+              <span>Accessibility Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128100;</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="help.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#10067;</span>
+              <span>Help &amp; About</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-card">
+          <div class="user-avatar" id="sidebarUserAvatar">D</div>
+          <div class="user-info">
+            <div class="user-name" id="sidebarUserName">Demo Student</div>
+            <span class="user-category-label" id="sidebarCategoryLabel">Standard</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">&#9776;</button>
+          <h1 class="page-title">Accessibility &amp; Accommodations</h1>
+        </div>
+        <div class="topbar-right">
+          <span class="quick-pref-badge" id="topbarCategoryBadge">&#128100; No Special Need</span>
+          <div class="profile-menu-container">
+            <button type="button" class="btn btn-outline btn-sm" id="topbarUserBtn" style="border-radius: var(--border-radius-full); padding: 0.35rem 0.75rem;">
+              <span id="topbarUserAvatar" class="user-avatar" style="width: 24px; height: 24px; font-size: 0.75rem;">D</span>
+              <span id="topbarUserName" style="font-weight: 600;">Student</span>
+              <span>&#9662;</span>
+            </button>
+            <div class="profile-menu-dropdown" id="profileDropdown">
+              <a href="profile.html" class="dropdown-item">&#128100; View Profile</a>
+              <a href="accessibility.html" class="dropdown-item">&#9881; Accessibility Settings</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" class="dropdown-item text-danger btn-trigger-logout">&#128682; Log Out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="mainContent" class="content-container">
+        <!-- Introduction Card -->
+        <div style="background: var(--bg-surface); padding: 2rem; border-radius: var(--border-radius-xl); border: 1px solid var(--border-color); margin-bottom: 2rem;">
+          <h2 style="font-size: var(--font-size-2xl); margin-bottom: 0.35rem;">Universal Design &amp; Personalization</h2>
+          <p style="font-size: var(--font-size-sm); color: var(--text-muted); margin-bottom: 0; max-width: 750px;">
+            Configure your primary learning accommodation profile below. You retain granular control to adjust text scale, contrast, speech rate, and focus modes independently.
+          </p>
+        </div>
+
+        <!-- 1. Learner Category Preset Switcher -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">1. Learner Accommodation Category</h3>
+              <p class="card-subtitle">Choose a base preset. Selecting a category configures recommended accommodations.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="category-selection-grid" role="radiogroup" aria-label="Select Accommodation Category">
+              <!-- None -->
+              <label class="category-choice-card" id="prefCard_none">
+                <input type="radio" name="prefCategory" value="none">
+                <span class="category-choice-icon" aria-hidden="true">&#128100;</span>
+                <span class="category-choice-title">No Special Need</span>
+                <span class="category-choice-desc">Standard interface sizing while keeping all features available.</span>
+              </label>
+
+              <!-- Low Vision -->
+              <label class="category-choice-card" id="prefCard_low_vision">
+                <input type="radio" name="prefCategory" value="low_vision">
+                <span class="category-choice-icon" aria-hidden="true">&#128065;&#65039;</span>
+                <span class="category-choice-title">Low Vision</span>
+                <span class="category-choice-desc">High contrast color theme, enlarged fonts (20px), and Read-Aloud.</span>
+              </label>
+
+              <!-- ADHD -->
+              <label class="category-choice-card" id="prefCard_adhd">
+                <input type="radio" name="prefCategory" value="adhd">
+                <span class="category-choice-icon" aria-hidden="true">&#9889;</span>
+                <span class="category-choice-title">ADHD</span>
+                <span class="category-choice-desc">Single-question focus mode, break reminders, reduced motion.</span>
+              </label>
+
+              <!-- Dyslexia -->
+              <label class="category-choice-card" id="prefCard_dyslexia">
+                <input type="radio" name="prefCategory" value="dyslexia">
+                <span class="category-choice-icon" aria-hidden="true">&#128214;</span>
+                <span class="category-choice-title">Dyslexia</span>
+                <span class="category-choice-desc">Readable font stack, relaxed line spacing (1.9x), left alignment.</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Individual Customization Controls -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">2. Granular Display &amp; Visual Controls</h3>
+              <p class="card-subtitle">Override or fine-tune individual visual options.</p>
+            </div>
+          </div>
+          <div class="card-body" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Text Size -->
+            <div>
+              <label for="prefFontSize" class="form-label">Base Font Scaling</label>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button type="button" class="btn btn-outline btn-sm font-size-btn" data-size="sm">Small (14px)</button>
+                <button type="button" class="btn btn-outline btn-sm font-size-btn" data-size="md">Standard (16px)</button>
+                <button type="button" class="btn btn-outline btn-sm font-size-btn" data-size="lg">Large (18px)</button>
+                <button type="button" class="btn btn-outline btn-sm font-size-btn" data-size="xl">Extra Large (20px)</button>
+                <button type="button" class="btn btn-outline btn-sm font-size-btn" data-size="2xl">Maximum (22px)</button>
+              </div>
+            </div>
+
+            <!-- Toggles Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+              <!-- High Contrast -->
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); background: var(--bg-surface-alt);">
+                <div>
+                  <strong style="font-size: var(--font-size-sm); color: var(--text-main);">High Contrast Theme</strong>
+                  <div style="font-size: var(--font-size-xs); color: var(--text-muted);">Max contrast dark theme with yellow accents.</div>
+                </div>
+                <input type="checkbox" id="prefHighContrast" style="width: 20px; height: 20px; accent-color: var(--color-brand); cursor: pointer;">
+              </div>
+
+              <!-- Dyslexia Font -->
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); background: var(--bg-surface-alt);">
+                <div>
+                  <strong style="font-size: var(--font-size-sm); color: var(--text-main);">Dyslexia Typography</strong>
+                  <div style="font-size: var(--font-size-xs); color: var(--text-muted);">Specialized letterforms and relaxed letter spacing.</div>
+                </div>
+                <input type="checkbox" id="prefDyslexiaFont" style="width: 20px; height: 20px; accent-color: var(--color-brand); cursor: pointer;">
+              </div>
+
+              <!-- Reduced Motion -->
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); background: var(--bg-surface-alt);">
+                <div>
+                  <strong style="font-size: var(--font-size-sm); color: var(--text-main);">Reduced Motion</strong>
+                  <div style="font-size: var(--font-size-xs); color: var(--text-muted);">Suppresses UI transitions and sliding animations.</div>
+                </div>
+                <input type="checkbox" id="prefReducedMotion" style="width: 20px; height: 20px; accent-color: var(--color-brand); cursor: pointer;">
+              </div>
+
+              <!-- One Question Focus -->
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); background: var(--bg-surface-alt);">
+                <div>
+                  <strong style="font-size: var(--font-size-sm); color: var(--text-main);">One-Question Focus Mode</strong>
+                  <div style="font-size: var(--font-size-xs); color: var(--text-muted);">Hides palette &amp; distraction items during tests.</div>
+                </div>
+                <input type="checkbox" id="prefOneQuestion" style="width: 20px; height: 20px; accent-color: var(--color-brand); cursor: pointer;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Read Aloud Speech Synthesis -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">3. Text-to-Speech (Read-Aloud) Support</h3>
+              <p class="card-subtitle">Auditory accommodations powered by the browser Web Speech Synthesis API.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div style="max-width: 500px;">
+              <div class="form-group">
+                <label for="prefSpeechRate" class="form-label">Speech Rate Speed: <span id="speechRateDisplay">1.0x</span></label>
+                <input type="range" id="prefSpeechRate" min="0.7" max="1.4" step="0.1" value="1.0" class="form-control" style="cursor: pointer;">
+              </div>
+
+              <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                <button type="button" class="btn btn-outline-primary btn-sm" id="btnTestSpeech">
+                  &#128266; Test Speech Audio
+                </button>
+                <button type="button" class="btn btn-outline btn-sm" id="btnStopTestSpeech">
+                  &#9209; Stop Speech
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Break Reminders (ADHD Pacing) -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">4. Cognitive Pacing &amp; Break Reminders</h3>
+              <p class="card-subtitle">Gentle reminders to rest your eyes and relax your posture during assessments.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; align-items: center; justify-content: space-between; max-width: 500px; margin-bottom: 1.25rem;">
+              <div>
+                <strong>Enable Break Reminders</strong>
+                <div style="font-size: var(--font-size-xs); color: var(--text-muted);">Displays a 30-second relaxation prompt after completed questions.</div>
+              </div>
+              <input type="checkbox" id="prefBreakReminders" style="width: 20px; height: 20px; accent-color: var(--color-brand); cursor: pointer;">
+            </div>
+
+            <div class="form-group" style="max-width: 320px;">
+              <label for="prefBreakInterval" class="form-label">Reminder Frequency</label>
+              <select id="prefBreakInterval" class="form-select">
+                <option value="3">Every 3 Questions</option>
+                <option value="5" selected>Every 5 Questions (Recommended)</option>
+                <option value="8">Every 8 Questions</option>
+                <option value="10">Every 10 Questions</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Typography & Contrast Preview Area -->
+        <div class="card" style="margin-bottom: 2rem; border-left: 4px solid var(--color-brand);">
+          <div class="card-header">
+            <h3 class="card-title">Live Accessibility Preview</h3>
+          </div>
+          <div class="card-body">
+            <p style="margin-bottom: 0.5rem;">
+              <strong>Question Preview:</strong> What is the solution to the equation \( 2x + 4 = 12 \)?
+            </p>
+            <p style="font-size: var(--font-size-sm); color: var(--text-muted); margin-bottom: 1rem;">
+              This preview text dynamically reflects your chosen text size, font stack, line spacing, and contrast settings in real time.
+            </p>
+            <button type="button" class="btn btn-primary btn-sm">Sample Action Button</button>
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <div style="text-align: right;">
+          <button type="button" class="btn btn-outline" id="btnResetAccessibility">
+            Restore Standard Defaults
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.auth.requireAuth();
+
+      const prefs = window.storage.getPreferences();
+
+      // Category cards sync
+      const catRadios = document.querySelectorAll('input[name="prefCategory"]');
+      catRadios.forEach(r => {
+        if (r.value === prefs.category) {
+          r.checked = true;
+          document.getElementById(`prefCard_${r.value}`).classList.add('selected');
+        }
+
+        r.addEventListener('change', () => {
+          document.querySelectorAll('.category-choice-card').forEach(c => c.classList.remove('selected'));
+          document.getElementById(`prefCard_${r.value}`).classList.add('selected');
+          window.accessibility.applyCategoryPreset(r.value);
+          syncFormControls();
+          if (window.app) window.app.showToast(`Applied ${r.value.replace('_', ' ')} preset!`, 'success');
+        });
+      });
+
+      // Font size buttons sync
+      function syncFontButtons(size) {
+        document.querySelectorAll('.font-size-btn').forEach(btn => {
+          if (btn.dataset.size === size) {
+            btn.classList.add('btn-primary');
+            btn.classList.remove('btn-outline');
+          } else {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-outline');
+          }
+        });
+      }
+
+      document.querySelectorAll('.font-size-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const s = btn.dataset.size;
+          window.accessibility.updateSinglePreference('fontSize', s);
+          syncFontButtons(s);
+          if (window.app) window.app.showToast(`Font size set to ${s.toUpperCase()}`, 'info');
+        });
+      });
+
+      // Toggles
+      const chkContrast = document.getElementById('prefHighContrast');
+      const chkDyslexia = document.getElementById('prefDyslexiaFont');
+      const chkReduced = document.getElementById('prefReducedMotion');
+      const chkFocus = document.getElementById('prefOneQuestion');
+      const chkBreaks = document.getElementById('prefBreakReminders');
+      const selBreakInterval = document.getElementById('prefBreakInterval');
+      const rngSpeechRate = document.getElementById('prefSpeechRate');
+      const speechRateDisplay = document.getElementById('speechRateDisplay');
+
+      chkContrast.addEventListener('change', () => window.accessibility.updateSinglePreference('highContrast', chkContrast.checked));
+      chkDyslexia.addEventListener('change', () => window.accessibility.updateSinglePreference('dyslexiaFont', chkDyslexia.checked));
+      chkReduced.addEventListener('change', () => window.accessibility.updateSinglePreference('reducedMotion', chkReduced.checked));
+      chkFocus.addEventListener('change', () => window.accessibility.updateSinglePreference('oneQuestionAtATime', chkFocus.checked));
+      chkBreaks.addEventListener('change', () => window.accessibility.updateSinglePreference('breakReminders', chkBreaks.checked));
+      selBreakInterval.addEventListener('change', () => window.accessibility.updateSinglePreference('breakInterval', parseInt(selBreakInterval.value, 10)));
+      
+      rngSpeechRate.addEventListener('input', () => {
+        speechRateDisplay.textContent = `${rngSpeechRate.value}x`;
+        window.accessibility.updateSinglePreference('speechRate', parseFloat(rngSpeechRate.value));
+      });
+
+      // Test Speech Button
+      document.getElementById('btnTestSpeech').addEventListener('click', () => {
+        window.accessibility.speak('Welcome to the AI Inclusive Assessment System. This is a demonstration of natural speech synthesis.');
+      });
+      document.getElementById('btnStopTestSpeech').addEventListener('click', () => {
+        window.accessibility.stopSpeaking();
+      });
+
+      // Restore Defaults
+      document.getElementById('btnResetAccessibility').addEventListener('click', () => {
+        window.accessibility.applyCategoryPreset('none');
+        syncFormControls();
+        if (window.app) window.app.showToast('Restored default accessibility settings.', 'info');
+      });
+
+      function syncFormControls() {
+        const p = window.storage.getPreferences();
+        syncFontButtons(p.fontSize || 'md');
+        chkContrast.checked = !!p.highContrast;
+        chkDyslexia.checked = !!p.dyslexiaFont;
+        chkReduced.checked = !!p.reducedMotion;
+        chkFocus.checked = !!p.oneQuestionAtATime;
+        chkBreaks.checked = !!p.breakReminders;
+        selBreakInterval.value = p.breakInterval || 5;
+        rngSpeechRate.value = p.speechRate || 1.0;
+        speechRateDisplay.textContent = `${rngSpeechRate.value}x`;
+
+        catRadios.forEach(r => {
+          r.checked = r.value === p.category;
+          const c = document.getElementById(`prefCard_${r.value}`);
+          if (c) c.classList.toggle('selected', r.value === p.category);
+        });
+      }
+
+      syncFormControls();
+    });
+  </script>
+</body>
+</html>

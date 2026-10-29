@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Setup - AI Inclusive Assessment System</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/assessment.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/storage.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/subjects.js"></script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to configuration form</a>
+
+  <div class="demo-banner">
+    <div class="demo-banner-content">
+      <span class="demo-badge">Assessment Configuration</span>
+      <span>Customize session parameters, question counts, timers, and accessibility aids.</span>
+    </div>
+    <div>
+      <a href="subjects.html">&larr; Change Subject</a>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="app-brand">
+          <div class="app-brand-icon" aria-hidden="true">&#9733;</div>
+          <span>AI Inclusive</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Learning</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#127968;</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="subjects.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128218;</span>
+              <span>Browse Subjects</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="assessment-setup.html" class="nav-link active">
+              <span class="nav-icon" aria-hidden="true">&#9997;&#65039;</span>
+              <span>Take Assessment</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Analytics &amp; History</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="progress.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128200;</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="history.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128197;</span>
+              <span>Learning History</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="achievements.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#127942;</span>
+              <span>Achievements</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Preferences &amp; Support</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="accessibility.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#9881;</span>
+              <span>Accessibility Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128100;</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="help.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#10067;</span>
+              <span>Help &amp; About</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-card">
+          <div class="user-avatar" id="sidebarUserAvatar">D</div>
+          <div class="user-info">
+            <div class="user-name" id="sidebarUserName">Demo Student</div>
+            <span class="user-category-label" id="sidebarCategoryLabel">Standard</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">&#9776;</button>
+          <h1 class="page-title">Assessment Setup</h1>
+        </div>
+        <div class="topbar-right">
+          <span class="quick-pref-badge" id="topbarCategoryBadge">&#128100; No Special Need</span>
+          <div class="profile-menu-container">
+            <button type="button" class="btn btn-outline btn-sm" id="topbarUserBtn" style="border-radius: var(--border-radius-full); padding: 0.35rem 0.75rem;">
+              <span id="topbarUserAvatar" class="user-avatar" style="width: 24px; height: 24px; font-size: 0.75rem;">D</span>
+              <span id="topbarUserName" style="font-weight: 600;">Student</span>
+              <span>&#9662;</span>
+            </button>
+            <div class="profile-menu-dropdown" id="profileDropdown">
+              <a href="profile.html" class="dropdown-item">&#128100; View Profile</a>
+              <a href="accessibility.html" class="dropdown-item">&#9881; Accessibility Settings</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" class="dropdown-item text-danger btn-trigger-logout">&#128682; Log Out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="mainContent" class="content-container">
+        <div class="setup-container">
+          <div class="card" style="margin-bottom: 2rem;">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Configure Your Practice Assessment</h2>
+                <p class="card-subtitle">Select your questions, difficulty, timer preferences, and visual mode.</p>
+              </div>
+              <a href="subjects.html" class="btn btn-outline btn-sm">Browse Catalog</a>
+            </div>
+
+            <form id="setupForm" class="card-body">
+              <!-- Subject Selection Dropdown -->
+              <div class="form-group">
+                <label for="setupSubjectSelect" class="form-label">Subject <span class="required">*</span></label>
+                <select id="setupSubjectSelect" class="form-select" required>
+                  <!-- Populated by JS -->
+                </select>
+              </div>
+
+              <!-- Topic Selection Dropdown -->
+              <div class="form-group">
+                <label for="setupTopicSelect" class="form-label">Topic / Skill Concept <span class="required">*</span></label>
+                <select id="setupTopicSelect" class="form-select" required>
+                  <!-- Populated by JS -->
+                </select>
+                <div class="form-hint" id="topicAvailabilityHint">Available in sample bank: 5 questions</div>
+              </div>
+
+              <!-- Question Count Selection & Difficulty -->
+              <div class="setup-grid" style="margin-bottom: 1.25rem;">
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="setupCountSelect" class="form-label">Number of Questions</label>
+                  <select id="setupCountSelect" class="form-select">
+                    <option value="3">3 Questions (Quick Practice)</option>
+                    <option value="5" selected>5 Questions (Standard Module)</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="setupDifficultySelect" class="form-label">Difficulty Level</label>
+                  <select id="setupDifficultySelect" class="form-select">
+                    <option value="mixed" selected>Mixed (Adaptive Baseline)</option>
+                    <option value="easy">Easy (Foundational)</option>
+                    <option value="medium">Medium (Standard)</option>
+                    <option value="hard">Hard (Advanced)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Timer Preference -->
+              <div class="form-group">
+                <label class="form-label">Timer Mode</label>
+                <div class="setup-grid">
+                  <label class="setup-option-card selected" id="optTimerYes">
+                    <div>
+                      <strong>⏱️ Timed Assessment</strong>
+                      <div style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.2rem;">
+                        Standard 2 minutes per question with optional visual warning.
+                      </div>
+                    </div>
+                    <input type="radio" name="setupTimer" value="timed" checked style="accent-color: var(--color-brand);">
+                  </label>
+
+                  <label class="setup-option-card" id="optTimerNo">
+                    <div>
+                      <strong>🧘 Untimed / Relaxed</strong>
+                      <div style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.2rem;">
+                        Take as much time as you need without time anxiety.
+                      </div>
+                    </div>
+                    <input type="radio" name="setupTimer" value="untimed" style="accent-color: var(--color-brand);">
+                  </label>
+                </div>
+              </div>
+
+              <!-- Feedback Preference -->
+              <div class="form-group">
+                <label class="form-label">Feedback Presentation</label>
+                <div class="setup-grid">
+                  <label class="setup-option-card selected" id="optFeedbackSummary">
+                    <div>
+                      <strong>📊 Comprehensive Summary</strong>
+                      <div style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.2rem;">
+                        Review all answers, scores, and explanations after final submission.
+                      </div>
+                    </div>
+                    <input type="radio" name="setupFeedback" value="summary" checked style="accent-color: var(--color-brand);">
+                  </label>
+
+                  <label class="setup-option-card" id="optFeedbackImmediate">
+                    <div>
+                      <strong>⚡ Immediate Hints</strong>
+                      <div style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.2rem;">
+                        Show explanations immediately after selecting an answer.
+                      </div>
+                    </div>
+                    <input type="radio" name="setupFeedback" value="immediate" style="accent-color: var(--color-brand);">
+                  </label>
+                </div>
+              </div>
+
+              <!-- Active Accessibility Check & Quick Toggle -->
+              <div style="background-color: var(--bg-surface-alt); border-radius: var(--border-radius-md); padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <strong style="font-size: var(--font-size-sm); color: var(--text-main);">
+                    Active Accessibility Accommodations
+                  </strong>
+                  <a href="accessibility.html" style="font-size: var(--font-size-xs); font-weight: 600;">
+                    Manage Settings &rarr;
+                  </a>
+                </div>
+                <div id="setupAccessibilitySummary" style="font-size: var(--font-size-xs); color: var(--text-muted); line-height: 1.5;">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg w-full" id="btnStartAssessment">
+                  Start Assessment Now &rarr;
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.auth.requireAuth();
+
+      const params = new URLSearchParams(window.location.search);
+      const preSubject = params.get('subject') || 'math';
+      const preTopic = params.get('topic') || '';
+
+      const subjectSelect = document.getElementById('setupSubjectSelect');
+      const topicSelect = document.getElementById('setupTopicSelect');
+      const allSubjects = window.subjectsManager.getAllSubjects();
+
+      // Populate Subjects
+      subjectSelect.innerHTML = '';
+      allSubjects.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.textContent = `${s.icon} ${s.name}`;
+        if (s.id === preSubject) opt.selected = true;
+        subjectSelect.appendChild(opt);
+      });
+
+      // Populate Topics for current subject
+      function updateTopics() {
+        const subId = subjectSelect.value;
+        const topics = window.subjectsManager.getTopicsBySubject(subId);
+        topicSelect.innerHTML = '';
+
+        topics.forEach(t => {
+          const opt = document.createElement('option');
+          opt.value = t.id;
+          opt.textContent = `${t.name} (${t.questionCount} questions)`;
+          if (t.id === preTopic) opt.selected = true;
+          topicSelect.appendChild(opt);
+        });
+
+        const selectedTopic = topics.find(t => t.id === topicSelect.value);
+        if (selectedTopic) {
+          document.getElementById('topicAvailabilityHint').textContent = `Available in sample bank: ${selectedTopic.questionCount} items (${selectedTopic.skillCode})`;
+        }
+      }
+
+      subjectSelect.addEventListener('change', updateTopics);
+      updateTopics();
+
+      topicSelect.addEventListener('change', () => {
+        const subId = subjectSelect.value;
+        const topics = window.subjectsManager.getTopicsBySubject(subId);
+        const selectedTopic = topics.find(t => t.id === topicSelect.value);
+        if (selectedTopic) {
+          document.getElementById('topicAvailabilityHint').textContent = `Available in sample bank: ${selectedTopic.questionCount} items (${selectedTopic.skillCode})`;
+        }
+      });
+
+      // Timer radio cards styling
+      document.querySelectorAll('input[name="setupTimer"]').forEach(r => {
+        r.addEventListener('change', () => {
+          document.getElementById('optTimerYes').classList.toggle('selected', r.value === 'timed');
+          document.getElementById('optTimerNo').classList.toggle('selected', r.value === 'untimed');
+        });
+      });
+
+      // Feedback radio cards styling
+      document.querySelectorAll('input[name="setupFeedback"]').forEach(r => {
+        r.addEventListener('change', () => {
+          document.getElementById('optFeedbackSummary').classList.toggle('selected', r.value === 'summary');
+          document.getElementById('optFeedbackImmediate').classList.toggle('selected', r.value === 'immediate');
+        });
+      });
+
+      // Populate Accessibility Summary
+      const prefs = window.storage.getPreferences();
+      const presets = window.accessibility.getPresets();
+      const catKey = prefs.category || 'none';
+      const preset = presets[catKey] || presets.none;
+
+      document.getElementById('setupAccessibilitySummary').innerHTML = `
+        <strong>Category:</strong> ${preset.name} (${preset.icon}) &bull; 
+        <strong>Text Size:</strong> ${prefs.fontSize.toUpperCase()} &bull; 
+        <strong>Contrast:</strong> ${prefs.highContrast ? 'High Contrast' : 'Standard'} &bull; 
+        <strong>Focus Mode:</strong> ${prefs.oneQuestionAtATime ? 'One Question Focus' : 'Standard Layout'} &bull; 
+        <strong>Speech Support:</strong> ${prefs.readAloud ? 'Enabled' : 'Available'}
+      `;
+
+      // Form submission -> Navigate to assessment.html
+      document.getElementById('setupForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const subjectId = subjectSelect.value;
+        const topicId = topicSelect.value;
+        const count = document.getElementById('setupCountSelect').value;
+        const timed = document.querySelector('input[name="setupTimer"]:checked').value === 'timed';
+        const feedback = document.querySelector('input[name="setupFeedback"]:checked').value;
+
+        window.location.href = `assessment.html?subject=${subjectId}&topic=${topicId}&count=${count}&timed=${timed ? 1 : 0}&feedback=${feedback}`;
+      });
+    });
+  </script>
+</body>
+</html>

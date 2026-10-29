@@ -1,0 +1,61 @@
+{
+  "dataset": "ASSISTments 2012-2013 (first 400,000 rows)",
+  "students": 10709,
+  "answers": 285762,
+  "test_auc": 0.7258,
+  "test_accuracy": 0.73,
+  "guessing_baseline": 0.6934,
+  "confusion_matrix": [
+    [
+      5192,
+      12348
+    ],
+    [
+      3102,
+      36575
+    ]
+  ],
+  "fairness_by_speed": [
+    {
+      "group": "other (75%)",
+      "answers": 45401,
+      "actual": 0.697,
+      "predicted": 0.696,
+      "auc": 0.73
+    },
+    {
+      "group": "slow (top 25%)",
+      "answers": 11816,
+      "actual": 0.682,
+      "predicted": 0.681,
+      "auc": 0.709
+    }
+  ],
+  "features": [
+    "d_problem",
+    "d_skill",
+    "stu_acc",
+    "stu_exp",
+    "skill_acc",
+    "skill_exp",
+    "recent5",
+    "speed",
+    "d_template",
+    "d_assign",
+    "d_assistment",
+    "d_ptype",
+    "last1",
+    "last2",
+    "last3",
+    "gap",
+    "ewm_acc",
+    "last10",
+    "asg_acc",
+    "asg_pos",
+    "ptype_acc",
+    "speed5",
+    "hour",
+    "dow",
+    "days_since_first"
+  ]
+}

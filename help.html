@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help &amp; Documentation - AI Inclusive Assessment System</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/storage.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/auth.js"></script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to help documentation</a>
+
+  <div class="demo-banner">
+    <div class="demo-banner-content">
+      <span class="demo-badge">Documentation</span>
+      <span>Accessibility guidelines, keyboard shortcuts, and future AI model integration specs.</span>
+    </div>
+    <div>
+      <a href="dashboard.html">&larr; Return to Dashboard</a>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="app-brand">
+          <div class="app-brand-icon" aria-hidden="true">&#9733;</div>
+          <span>AI Inclusive</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Learning</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#127968;</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="subjects.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128218;</span>
+              <span>Browse Subjects</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="assessment-setup.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#9997;&#65039;</span>
+              <span>Take Assessment</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Analytics &amp; History</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="progress.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128200;</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="history.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128197;</span>
+              <span>Learning History</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="achievements.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#127942;</span>
+              <span>Achievements</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Preferences &amp; Support</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="accessibility.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#9881;</span>
+              <span>Accessibility Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128100;</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="help.html" class="nav-link active">
+              <span class="nav-icon" aria-hidden="true">&#10067;</span>
+              <span>Help &amp; About</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-card">
+          <div class="user-avatar" id="sidebarUserAvatar">D</div>
+          <div class="user-info">
+            <div class="user-name" id="sidebarUserName">Demo Student</div>
+            <span class="user-category-label" id="sidebarCategoryLabel">Standard</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">&#9776;</button>
+          <h1 class="page-title">Help &amp; System Information</h1>
+        </div>
+        <div class="topbar-right">
+          <span class="quick-pref-badge" id="topbarCategoryBadge">&#128100; No Special Need</span>
+          <div class="profile-menu-container">
+            <button type="button" class="btn btn-outline btn-sm" id="topbarUserBtn" style="border-radius: var(--border-radius-full); padding: 0.35rem 0.75rem;">
+              <span id="topbarUserAvatar" class="user-avatar" style="width: 24px; height: 24px; font-size: 0.75rem;">D</span>
+              <span id="topbarUserName" style="font-weight: 600;">Student</span>
+              <span>&#9662;</span>
+            </button>
+            <div class="profile-menu-dropdown" id="profileDropdown">
+              <a href="profile.html" class="dropdown-item">&#128100; View Profile</a>
+              <a href="accessibility.html" class="dropdown-item">&#9881; Accessibility Settings</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" class="dropdown-item text-danger btn-trigger-logout">&#128682; Log Out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="mainContent" class="content-container">
+        <!-- Overview Banner -->
+        <div style="background: var(--bg-surface); padding: 2rem; border-radius: var(--border-radius-xl); border: 1px solid var(--border-color); margin-bottom: 2rem;">
+          <h2 style="font-size: var(--font-size-2xl); margin-bottom: 0.35rem;">Platform Guide &amp; AI Integration Architecture</h2>
+          <p style="font-size: var(--font-size-sm); color: var(--text-muted); margin-bottom: 0; max-width: 800px;">
+            The AI Inclusive Assessment System is built from the ground up to empower diverse learners through sensory, visual, and cognitive accommodations.
+          </p>
+        </div>
+
+        <!-- Section 1: The Four Learner Categories -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h3 class="card-title">1. Understanding the Four Learner Categories</h3>
+          </div>
+          <div class="card-body">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+              <div>
+                <h4>👤 No Special Need</h4>
+                <p style="font-size: var(--font-size-sm); color: var(--text-muted);">
+                  The standard interface for students without specific accommodations. All personalization options (contrast, font resizing, read-aloud) remain accessible at any time.
+                </p>
+              </div>
+
+              <div>
+                <h4>👁️ Low Vision</h4>
+                <p style="font-size: var(--font-size-sm); color: var(--text-muted);">
+                  Optimized for visual clarity. Automatically activates an ultra-high-contrast palette (white on black with high-visibility accents), enlarges text up to 22px, and enables the Read-Aloud speech toolbar.
+                </p>
+              </div>
+
+              <div>
+                <h4>⚡ ADHD (Attention Deficit Hyperactivity)</h4>
+                <p style="font-size: var(--font-size-sm); color: var(--text-muted);">
+                  Structured for distraction reduction and pacing. Implements a one-question-at-a-time focus view, eliminates sliding animations, provides an uncluttered canvas, and triggers optional gentle recharge breaks every 5 questions.
+                </p>
+              </div>
+
+              <div>
+                <h4>📖 Dyslexia</h4>
+                <p style="font-size: var(--font-size-sm); color: var(--text-muted);">
+                  Designed for fluid typographic comprehension. Uses specialized weighted letterforms, increases line spacing to 1.9x, applies relaxed word and letter spacing, left-aligns text to prevent river effects, and provides clear option separation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Keyboard Accessibility -->
+        <div id="keyboard" class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h3 class="card-title">2. Keyboard Navigation Shortcuts</h3>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Key Combination</th>
+                    <th scope="col">Action in Assessment</th>
+                    <th scope="col">Scope</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd></td>
+                    <td>Select Multiple Choice Option A, B, C, or D directly</td>
+                    <td>Assessment Question View</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd> (Right Arrow)</td>
+                    <td>Advance to Next Question</td>
+                    <td>Assessment Question View</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd> (Left Arrow)</td>
+                    <td>Return to Previous Question</td>
+                    <td>Assessment Question View</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>Tab</kbd> / <kbd>Shift + Tab</kbd></td>
+                    <td>Navigate between interactive controls and buttons</td>
+                    <td>Global Application</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>Enter</kbd> / <kbd>Space</kbd></td>
+                    <td>Activate selected button or toggle answer choice</td>
+                    <td>Global Application</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>Escape</kbd></td>
+                    <td>Close open dialogs, break reminders, or menus</td>
+                    <td>Global Application</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: AI Model Architecture & ASSISTments Research -->
+        <div id="model" class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">3. Trained AI Model Context &amp; Backend Roadmap</h3>
+              <p class="card-subtitle">Integration details for the predictive knowledge tracing model.</p>
+            </div>
+            <span class="badge badge-brand">ASSISTments 2012-2013</span>
+          </div>
+          <div class="card-body">
+            <p style="font-size: var(--font-size-sm); color: var(--text-muted); line-height: 1.6;">
+              The AI Inclusive Assessment System includes a machine learning model trained on the <strong>ASSISTments 2012–2013</strong> educational dataset (285,762 student interactions, 10,709 unique students). 
+              In the repository, the model weights and pipelines are preserved in <code>final_model_2012.joblib</code> and <code>model_package_2012.joblib</code>.
+            </p>
+
+            <div style="background: var(--bg-surface-alt); border-radius: var(--border-radius-md); padding: 1.25rem; margin: 1.25rem 0; border: 1px solid var(--border-color);">
+              <h4 style="margin-bottom: 0.5rem; font-size: var(--font-size-md);">Historical Evaluation Metrics</h4>
+              <ul style="font-size: var(--font-size-xs); color: var(--text-muted); margin-bottom: 0.75rem;">
+                <li><strong>Test AUC:</strong> approximately <code>0.7258</code></li>
+                <li><strong>Test Accuracy:</strong> approximately <code>0.7300</code> (vs 0.6934 guessing baseline)</li>
+                <li><strong>Slow-Paced vs Standard Group AUC:</strong> <code>0.709</code> (slow top 25%) vs <code>0.730</code> (standard 75%)</li>
+              </ul>
+              <div style="font-size: 0.75rem; color: var(--text-light);">
+                <em>Note:</em> These are verified experimental metrics from the research evaluation. They predict student correctness likelihood on prospective problems and do not automatically generate raw questions.
+              </div>
+            </div>
+
+            <h4 style="margin-bottom: 0.5rem; font-size: var(--font-size-md);">Backend API Integration Endpoints</h4>
+            <p style="font-size: var(--font-size-sm); color: var(--text-muted);">
+              When a backend service (e.g. FastAPI / Flask / Node) is connected, the frontend module <code>js/api.js</code> is pre-wired to communicate via the following REST contract:
+            </p>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">HTTP Method</th>
+                    <th scope="col">Endpoint</th>
+                    <th scope="col">Purpose &amp; Payload</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>POST</code></td>
+                    <td><code>/api/auth/login</code></td>
+                    <td>Authenticates student credentials and returns JWT bearer token.</td>
+                  </tr>
+                  <tr>
+                    <td><code>POST</code></td>
+                    <td><code>/api/assessments/submit</code></td>
+                    <td>Persists student assessment answers, computes score, and updates master history.</td>
+                  </tr>
+                  <tr>
+                    <td><code>POST</code></td>
+                    <td><code>/api/ai/predict</code></td>
+                    <td>
+                      Takes student performance features (<code>stu_acc, skill_acc, recent5, speed</code>) 
+                      and returns predicted correctness probability and adaptive next topic recommendations.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Frequently Asked Questions -->
+        <div id="faq" class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h3 class="card-title">4. Frequently Asked Questions (FAQ)</h3>
+          </div>
+          <div class="card-body" style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <h4 style="font-size: var(--font-size-md);">Is my practice data stored on a remote server?</h4>
+              <p style="font-size: var(--font-size-sm); color: var(--text-muted); margin-bottom: 0;">
+                No. In this frontend version, all assessment attempts, streak days, daily goals, and accessibility preferences are stored locally in your browser's <code>localStorage</code>. No personal data is sent externally.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="font-size: var(--font-size-md);">Can I change my learner category after registration?</h4>
+              <p style="font-size: var(--font-size-sm); color: var(--text-muted); margin-bottom: 0;">
+                Yes! You can change your primary category or toggle individual accommodations at any time in <a href="accessibility.html">Accessibility Settings</a> or on your <a href="profile.html">Profile Page</a>.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="font-size: var(--font-size-md);">How does the Read-Aloud speech synthesis work?</h4>
+              <p style="font-size: var(--font-size-sm); color: var(--text-muted); margin-bottom: 0;">
+                The platform utilizes the browser's built-in Web Speech API (<code>window.speechSynthesis</code>). It speaks the question and options only when you click the "Speak Question" button. It will never play unexpected audio without student consent.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

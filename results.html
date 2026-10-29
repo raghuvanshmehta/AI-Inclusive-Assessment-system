@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Results - AI Inclusive Assessment System</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/assessment.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/storage.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/subjects.js"></script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to results</a>
+
+  <!-- Demo Notice Banner -->
+  <div class="demo-banner">
+    <div class="demo-banner-content">
+      <span class="demo-badge">Results Breakdown</span>
+      <span>Calculated using frontend demo answer key. Stored in local browser learning history.</span>
+    </div>
+    <div>
+      <a href="dashboard.html">&larr; Return to Dashboard</a>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="app-brand">
+          <div class="app-brand-icon" aria-hidden="true">&#9733;</div>
+          <span>AI Inclusive</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Learning</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#127968;</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="subjects.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128218;</span>
+              <span>Browse Subjects</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="assessment-setup.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#9997;&#65039;</span>
+              <span>Take Assessment</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Analytics &amp; History</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="progress.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128200;</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="history.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128197;</span>
+              <span>Learning History</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="achievements.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#127942;</span>
+              <span>Achievements</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Preferences &amp; Support</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="accessibility.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#9881;</span>
+              <span>Accessibility Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128100;</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="help.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#10067;</span>
+              <span>Help &amp; About</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-card">
+          <div class="user-avatar" id="sidebarUserAvatar">D</div>
+          <div class="user-info">
+            <div class="user-name" id="sidebarUserName">Demo Student</div>
+            <span class="user-category-label" id="sidebarCategoryLabel">Standard</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">&#9776;</button>
+          <h1 class="page-title">Performance Results</h1>
+        </div>
+        <div class="topbar-right">
+          <span class="quick-pref-badge" id="topbarCategoryBadge">&#128100; No Special Need</span>
+          <div class="profile-menu-container">
+            <button type="button" class="btn btn-outline btn-sm" id="topbarUserBtn" style="border-radius: var(--border-radius-full); padding: 0.35rem 0.75rem;">
+              <span id="topbarUserAvatar" class="user-avatar" style="width: 24px; height: 24px; font-size: 0.75rem;">D</span>
+              <span id="topbarUserName" style="font-weight: 600;">Student</span>
+              <span>&#9662;</span>
+            </button>
+            <div class="profile-menu-dropdown" id="profileDropdown">
+              <a href="profile.html" class="dropdown-item">&#128100; View Profile</a>
+              <a href="accessibility.html" class="dropdown-item">&#9881; Accessibility Settings</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" class="dropdown-item text-danger btn-trigger-logout">&#128682; Log Out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="mainContent" class="content-container">
+        <div class="results-container">
+          <!-- Hero Score Card -->
+          <section class="results-hero-card" aria-label="Score Overview">
+            <div class="score-circle-wrapper">
+              <div class="score-big-num" id="resAccuracy">80%</div>
+              <div class="score-max">Accuracy</div>
+            </div>
+
+            <h2 id="resTitle" style="font-size: var(--font-size-2xl); margin-bottom: 0.25rem;">Great Effort!</h2>
+            <p id="resSubtitle" style="font-size: var(--font-size-sm); color: var(--text-muted); margin-bottom: 1.5rem;">
+              You completed the practice module for <strong id="resSubjectName">Mathematics</strong>: <span id="resTopicName">Linear Equations</span>.
+            </p>
+
+            <!-- Detailed Stat Metrics Row -->
+            <div class="results-stat-row">
+              <div class="res-stat-box">
+                <div class="res-stat-val text-brand" id="resScore">4 / 5</div>
+                <div class="res-stat-label">Total Score</div>
+              </div>
+              <div class="res-stat-box">
+                <div class="res-stat-val text-success" id="resCorrect">4</div>
+                <div class="res-stat-label">Correct Answers</div>
+              </div>
+              <div class="res-stat-box">
+                <div class="res-stat-val text-danger" id="resIncorrect">1</div>
+                <div class="res-stat-label">Incorrect Answers</div>
+              </div>
+              <div class="res-stat-box">
+                <div class="res-stat-val" id="resTime">1m 45s</div>
+                <div class="res-stat-label">Duration</div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn-primary" id="btnPractiseAgain">&#8635; Practise Again</button>
+              <button type="button" class="btn btn-outline" id="btnFilterIncorrect">&#128065; Review Only Mistakes</button>
+              <a href="topic-selection.html" class="btn btn-outline" id="btnTryAnotherTopic">Try Another Topic</a>
+              <a href="dashboard.html" class="btn btn-secondary">Dashboard</a>
+            </div>
+          </section>
+
+          <!-- Question-by-Question Review Breakdown -->
+          <section aria-labelledby="breakdownTitle">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+              <h3 id="breakdownTitle" style="margin-bottom: 0;">Detailed Question Breakdown</h3>
+              <span id="reviewFilterStatus" class="badge badge-muted">Showing All Questions</span>
+            </div>
+
+            <div id="reviewQuestionsList">
+              <!-- Dynamically populated review questions -->
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.auth.requireAuth();
+
+      const params = new URLSearchParams(window.location.search);
+      const resultId = params.get('id');
+
+      // Fetch result from storage
+      const history = window.storage.getHistory();
+      let record = history.find(h => h.id === resultId);
+
+      if (!record) {
+        record = window.storage.get('ai_inclusive_latest_result') || history[0];
+      }
+
+      if (!record) {
+        alert('No assessment results found.');
+        window.location.href = 'dashboard.html';
+        return;
+      }
+
+      // Populate hero metrics
+      document.getElementById('resAccuracy').textContent = `${record.accuracy || 0}%`;
+      document.getElementById('resScore').textContent = `${record.score || 0} / ${record.totalQuestions || 0}`;
+      document.getElementById('resCorrect').textContent = record.correctCount || 0;
+      document.getElementById('resIncorrect').textContent = record.incorrectCount || 0;
+      document.getElementById('resSubjectName').textContent = record.subjectName || 'Subject';
+      document.getElementById('resTopicName').textContent = record.topicName || 'Topic';
+
+      const mins = Math.floor((record.durationSeconds || 0) / 60);
+      const secs = (record.durationSeconds || 0) % 60;
+      document.getElementById('resTime').textContent = `${mins}m ${secs}s`;
+
+      const titleEl = document.getElementById('resTitle');
+      if (record.accuracy >= 80) titleEl.textContent = '🌟 Excellent Mastery!';
+      else if (record.accuracy >= 60) titleEl.textContent = '👍 Good Effort!';
+      else titleEl.textContent = '📚 Keep Practising!';
+
+      // Setup button links
+      document.getElementById('btnPractiseAgain').addEventListener('click', () => {
+        window.location.href = `assessment-setup.html?subject=${record.subjectId}&topic=${record.topicId}`;
+      });
+      document.getElementById('btnTryAnotherTopic').href = `topic-selection.html?subject=${record.subjectId}`;
+
+      // Render Question Breakdown
+      renderReviewList(record.answers || [], false);
+
+      let showingMistakesOnly = false;
+      const btnFilter = document.getElementById('btnFilterIncorrect');
+      btnFilter.addEventListener('click', () => {
+        showingMistakesOnly = !showingMistakesOnly;
+        btnFilter.textContent = showingMistakesOnly ? '👁️ Show All Questions' : '👁️ Review Only Mistakes';
+        document.getElementById('reviewFilterStatus').textContent = showingMistakesOnly ? 'Showing Incorrect Only' : 'Showing All Questions';
+        renderReviewList(record.answers || [], showingMistakesOnly);
+      });
+    });
+
+    function renderReviewList(answers, mistakesOnly = false) {
+      const container = document.getElementById('reviewQuestionsList');
+      container.innerHTML = '';
+
+      const letters = ['A', 'B', 'C', 'D'];
+      const filtered = mistakesOnly ? answers.filter(a => a.status === 'incorrect' || a.status === 'skipped') : answers;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state" style="padding: 2rem;">
+            <h4>No questions match this filter!</h4>
+            <p>You scored 100% on this selection. Congratulations!</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach((ans, idx) => {
+        const item = document.createElement('article');
+        item.className = `review-item is-${ans.status}`;
+
+        let statusBadge = '<span class="badge badge-success">&#10004; Correct</span>';
+        if (ans.status === 'incorrect') statusBadge = '<span class="badge badge-danger">&#10008; Incorrect</span>';
+        else if (ans.status === 'skipped') statusBadge = '<span class="badge badge-warning">&#9888; Skipped</span>';
+
+        const userChoiceText = ans.userSelectedIndex !== null ? `${letters[ans.userSelectedIndex]}: ${ans.options[ans.userSelectedIndex]}` : '<em>No answer selected (Skipped)</em>';
+        const correctChoiceText = `${letters[ans.correctIndex]}: ${ans.options[ans.correctIndex]}`;
+
+        item.innerHTML = `
+          <div class="review-header">
+            <div>
+              <span style="font-size: var(--font-size-xs); font-weight: 700; color: var(--color-brand); text-transform: uppercase;">
+                Question ${idx + 1} &bull; Difficulty: ${ans.difficulty || 'Standard'}
+              </span>
+              <h4 style="font-size: var(--font-size-md); margin-top: 0.25rem; margin-bottom: 0;">
+                ${ans.questionText}
+              </h4>
+            </div>
+            <div>${statusBadge}</div>
+          </div>
+
+          <div style="font-size: var(--font-size-xs); margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.4rem;">
+            <div><strong>Your Answer:</strong> <span style="${ans.status === 'incorrect' ? 'color: var(--color-danger); font-weight: 600;' : ''}">${userChoiceText}</span></div>
+            <div><strong>Correct Answer:</strong> <span style="color: var(--color-success); font-weight: 600;">${correctChoiceText}</span></div>
+          </div>
+
+          <div class="review-explanation">
+            <strong>Explanation:</strong> ${ans.explanation}
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+  </script>
+</body>
+</html>

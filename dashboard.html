@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - AI Inclusive Assessment System</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/storage.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/subjects.js"></script>
+  <script src="js/progress.js"></script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Demo Notice Banner -->
+  <div class="demo-banner" role="region" aria-label="Demo mode announcement">
+    <div class="demo-banner-content">
+      <span class="demo-badge">Demo Mode Active</span>
+      <span>Displaying client-side sample student analytics. All metrics update live with completed assessments.</span>
+    </div>
+    <div>
+      <a href="accessibility.html">Quick Customize &rarr;</a>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="app-brand">
+          <div class="app-brand-icon" aria-hidden="true">&#9733;</div>
+          <span>AI Inclusive</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Learning</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link active">
+              <span class="nav-icon" aria-hidden="true">&#127968;</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="subjects.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128218;</span>
+              <span>Browse Subjects</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="assessment-setup.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#9997;&#65039;</span>
+              <span>Take Assessment</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Analytics &amp; History</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="progress.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128200;</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="history.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128197;</span>
+              <span>Learning History</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="achievements.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#127942;</span>
+              <span>Achievements</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Preferences &amp; Support</div>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+          <li class="nav-item">
+            <a href="accessibility.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#9881;</span>
+              <span>Accessibility Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#128100;</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="help.html" class="nav-link">
+              <span class="nav-icon" aria-hidden="true">&#10067;</span>
+              <span>Help &amp; About</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-card">
+          <div class="user-avatar" id="sidebarUserAvatar">D</div>
+          <div class="user-info">
+            <div class="user-name" id="sidebarUserName">Demo Student</div>
+            <span class="user-category-label" id="sidebarCategoryLabel">Standard</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      <!-- Top Navigation Bar -->
+      <header class="app-topbar" role="banner">
+        <div class="topbar-left">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            &#9776;
+          </button>
+          <h1 class="page-title">Student Dashboard</h1>
+        </div>
+
+        <div class="topbar-right">
+          <span class="quick-pref-badge" id="topbarCategoryBadge">&#128100; No Special Need</span>
+
+          <div class="profile-menu-container">
+            <button type="button" class="btn btn-outline btn-sm" id="topbarUserBtn" style="border-radius: var(--border-radius-full); padding: 0.35rem 0.75rem;" aria-expanded="false" aria-haspopup="true">
+              <span id="topbarUserAvatar" class="user-avatar" style="width: 24px; height: 24px; font-size: 0.75rem;">D</span>
+              <span id="topbarUserName" style="font-weight: 600;">Student</span>
+              <span>&#9662;</span>
+            </button>
+
+            <div class="profile-menu-dropdown" id="profileDropdown" role="menu">
+              <a href="profile.html" class="dropdown-item" role="menuitem">&#128100; View Profile</a>
+              <a href="accessibility.html" class="dropdown-item" role="menuitem">&#9881; Accessibility Settings</a>
+              <a href="help.html" class="dropdown-item" role="menuitem">&#10067; Help &amp; FAQs</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" class="dropdown-item text-danger btn-trigger-logout" role="menuitem">&#128682; Log Out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body -->
+      <main id="mainContent" class="content-container">
+        <!-- Welcome Banner -->
+        <section class="welcome-banner" aria-labelledby="welcomeTitle">
+          <div class="welcome-content">
+            <span class="welcome-date" id="welcomeDate">OCTOBER 22, 2026</span>
+            <h2 id="welcomeTitle" class="welcome-title">Welcome back, <span id="welcomeStudentName">Alex</span>!</h2>
+            <p class="welcome-quote">
+              "Consistency is the key to mastery. Every question you practise brings you closer to your learning goals."
+            </p>
+            <div class="welcome-actions">
+              <a href="assessment-setup.html" class="btn btn-primary btn-lg">&#9654; Continue Learning</a>
+              <a href="subjects.html" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">Browse All Subjects</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4 Summary Metrics Cards -->
+        <section class="metrics-grid" aria-label="Key Performance Indicators">
+          <div class="metric-card">
+            <div class="metric-icon-box metric-icon-indigo" aria-hidden="true">&#9997;&#65039;</div>
+            <div class="metric-info">
+              <div class="metric-value" id="metricQuestions">15</div>
+              <div class="metric-label">Questions Attempted</div>
+              <div class="metric-sub">&#8593; 5 completed today</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box metric-icon-teal" aria-hidden="true">&#127919;</div>
+            <div class="metric-info">
+              <div class="metric-value" id="metricAccuracy">87%</div>
+              <div class="metric-label">Overall Accuracy</div>
+              <div class="metric-sub" style="color: var(--color-success);">&#10004; Strong proficiency</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box metric-icon-amber" aria-hidden="true">&#128293;</div>
+            <div class="metric-info">
+              <div class="metric-value" id="metricStreak">3 Days</div>
+              <div class="metric-label">Current Streak</div>
+              <div class="metric-sub" style="color: #b45309;">Record: 5 Days</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box metric-icon-rose" aria-hidden="true">&#9201;</div>
+            <div class="metric-info">
+              <div class="metric-value" id="metricTime">10 mins</div>
+              <div class="metric-label">Learning Time</div>
+              <div class="metric-sub">&#128337; Average 2 min / item</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Main Dashboard Split: 2 Columns -->
+        <div class="dashboard-grid">
+          <!-- Left Column: Continue Learning, Weekly Chart, Subject Progress -->
+          <div class="dash-left-col">
+            <!-- Continue Learning Card -->
+            <div class="continue-card" id="continueLearningBox">
+              <div class="continue-left">
+                <div class="continue-subject-icon" aria-hidden="true">&#128218;</div>
+                <div>
+                  <div class="continue-title" id="continueTitle">Linear Equations &amp; Expressions</div>
+                  <div class="continue-meta" id="continueMeta">Mathematics &bull; Last practiced 2 hours ago</div>
+                </div>
+              </div>
+              <a href="assessment-setup.html?subject=math&topic=algebra" class="btn btn-secondary">
+                Resume Practice &rarr;
+              </a>
+            </div>
+
+            <!-- Weekly Activity Chart Card -->
+            <div class="chart-card">
+              <div class="chart-header">
+                <div>
+                  <h3 class="card-title">Weekly Practice Activity</h3>
+                  <div class="card-subtitle">Questions answered each day this week</div>
+                </div>
+                <span class="badge badge-accent">Last 7 Days</span>
+              </div>
+              <div class="chart-wrapper">
+                <canvas id="chartQuestionsAttempted" role="img" aria-label="Bar chart showing questions attempted per day this week"></canvas>
+              </div>
+              <div class="chart-fallback-summary" id="chartSummaryText">
+                <strong>Activity Summary:</strong> You completed questions on 3 days this week, peaking at 15 questions on Friday.
+              </div>
+            </div>
+
+            <!-- Subject Progress Cards -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Subject Mastery</h3>
+                  <div class="card-subtitle">Track your accuracy and completed topics per subject</div>
+                </div>
+                <a href="subjects.html" class="btn btn-outline btn-sm">View All</a>
+              </div>
+              <div class="card-body">
+                <div class="subjects-progress-grid" id="subjectsMasteryGrid">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Daily Goal, Streak Widget, Recommendations -->
+          <div class="dash-right-col">
+            <!-- Daily Goal Card -->
+            <div class="widget-card">
+              <div class="widget-header">
+                <h3 class="widget-title">&#127919; Daily Learning Goal</h3>
+                <span class="badge badge-brand" id="goalStatusBadge">In Progress</span>
+              </div>
+              <div class="goal-progress-box">
+                <div class="goal-circle-number" id="goalCompletedCount">6</div>
+                <div class="goal-circle-label">of <span id="goalTargetCount">10</span> questions completed</div>
+              </div>
+              <div class="progress-bar-container lg">
+                <div class="progress-bar-fill accent" id="goalProgressFill" style="width: 60%;"></div>
+              </div>
+
+              <!-- Interactive Goal Setter -->
+              <div style="margin-top: 1.25rem;">
+                <label style="font-size: var(--font-size-xs); font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">
+                  Adjust Daily Target:
+                </label>
+                <div class="goal-selector-buttons">
+                  <button type="button" class="btn-goal" data-target="5">5</button>
+                  <button type="button" class="btn-goal active" data-target="10">10</button>
+                  <button type="button" class="btn-goal" data-target="15">15</button>
+                  <button type="button" class="btn-goal" data-target="20">20</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Learning Streak Card -->
+            <div class="widget-card">
+              <div class="widget-header">
+                <h3 class="widget-title">&#128293; Learning Streak</h3>
+                <span class="badge badge-warning" id="streakLabelBadge">Active</span>
+              </div>
+              <div class="streak-display">
+                <div class="streak-flame" aria-hidden="true">&#128293;</div>
+                <div>
+                  <div class="streak-count" id="streakCurrentCount">3 Days</div>
+                  <div class="streak-label">Keep your momentum going!</div>
+                </div>
+              </div>
+
+              <div class="weekly-streak-dots" id="weeklyStreakDots" aria-label="Days active this week">
+                <!-- Days of week dots rendered by JS -->
+              </div>
+            </div>
+
+            <!-- Demo Recommended Practice -->
+            <div class="widget-card">
+              <div class="widget-header">
+                <h3 class="widget-title">&#128161; Recommended Next</h3>
+                <span class="badge badge-muted">Sample Preview</span>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                Sample practice recommendations. Future predictive AI models will suggest targeted topics based on mastery probability.
+              </p>
+              <div class="recommendations-list">
+                <div class="recommendation-item">
+                  <div class="rec-text">
+                    <h4>Pythagorean Theorem</h4>
+                    <p>Mathematics &bull; High priority</p>
+                  </div>
+                  <a href="assessment-setup.html?subject=math&topic=geometry" class="btn btn-outline-primary btn-sm">Practise</a>
+                </div>
+                <div class="recommendation-item">
+                  <div class="rec-text">
+                    <h4>Binary Search Trees</h4>
+                    <p>Computer Science &bull; New concept</p>
+                  </div>
+                  <a href="assessment-setup.html?subject=cs&topic=algorithms" class="btn btn-outline-primary btn-sm">Practise</a>
+                </div>
+                <div class="recommendation-item">
+                  <div class="rec-text">
+                    <h4>Reading Inference</h4>
+                    <p>English &bull; Reinforce skills</p>
+                  </div>
+                  <a href="assessment-setup.html?subject=english&topic=reading_comprehension" class="btn btn-outline-primary btn-sm">Practise</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Initialize Dashboard Live Data
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check auth guard
+      if (!window.auth.isLoggedIn()) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      const user = window.storage.getUser();
+      const streak = window.storage.getStreak();
+      const goal = window.storage.getDailyGoal();
+      const history = window.storage.getHistory();
+
+      // Current Date
+      const today = new Date();
+      const dateStr = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).toUpperCase();
+      document.getElementById('welcomeDate').textContent = dateStr;
+
+      // Welcome Name
+      document.getElementById('welcomeStudentName').textContent = user.name || 'Student';
+
+      // Aggregate Stats
+      let totalQ = 0;
+      let totalC = 0;
+      let totalSec = 0;
+
+      history.forEach(item => {
+        totalQ += (item.totalQuestions || 0);
+        totalC += (item.correctCount || 0);
+        totalSec += (item.durationSeconds || 0);
+      });
+
+      const accuracy = totalQ > 0 ? Math.round((totalC / totalQ) * 100) : 0;
+      const totalMins = Math.round(totalSec / 60);
+
+      document.getElementById('metricQuestions').textContent = totalQ;
+      document.getElementById('metricAccuracy').textContent = `${accuracy}%`;
+      document.getElementById('metricStreak').textContent = `${streak.currentStreak || 1} Days`;
+      document.getElementById('metricTime').textContent = totalMins >= 60 ? `${(totalMins / 60).toFixed(1)} hrs` : `${totalMins} mins`;
+
+      // Goal
+      const target = goal.target || 10;
+      const done = goal.completedToday || 0;
+      const pct = Math.min(100, Math.round((done / target) * 100));
+
+      document.getElementById('goalCompletedCount').textContent = done;
+      document.getElementById('goalTargetCount').textContent = target;
+      document.getElementById('goalProgressFill').style.width = `${pct}%`;
+
+      if (done >= target) {
+        document.getElementById('goalStatusBadge').textContent = 'Goal Completed!';
+        document.getElementById('goalStatusBadge').className = 'badge badge-success';
+      }
+
+      // Wire up Goal Buttons
+      document.querySelectorAll('.btn-goal').forEach(btn => {
+        const val = parseInt(btn.dataset.target, 10);
+        if (val === target) btn.classList.add('active');
+        else btn.classList.remove('active');
+
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.btn-goal').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          window.storage.setDailyGoalTarget(val);
+          document.getElementById('goalTargetCount').textContent = val;
+          const newPct = Math.min(100, Math.round((done / val) * 100));
+          document.getElementById('goalProgressFill').style.width = `${newPct}%`;
+          if (window.app) window.app.showToast(`Daily goal updated to ${val} questions!`, 'info');
+        });
+      });
+
+      // Streak Widget
+      document.getElementById('streakCurrentCount').textContent = `${streak.currentStreak || 1} Days`;
+      renderWeeklyStreakDots(streak.activeDays || []);
+
+      // Continue Learning Banner
+      if (history.length > 0) {
+        const latest = history[0];
+        document.getElementById('continueTitle').textContent = latest.topicName;
+        document.getElementById('continueMeta').textContent = `${latest.subjectName} • Scored ${latest.score}/${latest.totalQuestions} (${latest.accuracy}%)`;
+        document.getElementById('continueLearningBox').querySelector('a').href = `assessment-setup.html?subject=${latest.subjectId}&topic=${latest.topicId}`;
+      }
+
+      // Render Subject Mastery Grid
+      renderSubjectMastery(history);
+
+      // Render Weekly Activity Chart
+      if (window.progressManager) {
+        window.progressManager.renderActivityChart(window.progressManager.calculateMetrics('7d'), typeof Chart !== 'undefined');
+      }
+    });
+
+    function renderWeeklyStreakDots(activeDays) {
+      const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+      const container = document.getElementById('weeklyStreakDots');
+      container.innerHTML = '';
+
+      days.forEach((day, idx) => {
+        const col = document.createElement('div');
+        col.className = 'streak-dot-col';
+        
+        // Mark today and previous couple active for realistic demo
+        const isActive = idx <= 4; 
+
+        col.innerHTML = `
+          <div class="streak-dot ${isActive ? 'active' : ''}">${isActive ? '✓' : ''}</div>
+          <div class="streak-day-label">${day}</div>
+        `;
+        container.appendChild(col);
+      });
+    }
+
+    function renderSubjectMastery(history) {
+      const grid = document.getElementById('subjectsMasteryGrid');
+      const subjects = window.subjectsManager.getAllSubjects();
+      grid.innerHTML = '';
+
+      subjects.slice(0, 4).forEach(sub => {
+        const subHistory = history.filter(h => h.subjectId === sub.id);
+        const attempted = subHistory.reduce((s, h) => s + (h.totalQuestions || 0), 0);
+        const correct = subHistory.reduce((s, h) => s + (h.correctCount || 0), 0);
+        const acc = attempted > 0 ? Math.round((correct / attempted) * 100) : 75;
+
+        const card = document.createElement('div');
+        card.className = 'subject-progress-card';
+        card.innerHTML = `
+          <div class="subject-card-head">
+            <span class="subject-card-title">${sub.icon} ${sub.name}</span>
+            <span class="badge badge-brand">${acc}% Accuracy</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: ${acc}%;"></div>
+          </div>
+          <div class="subject-card-stats">
+            <span>${attempted} questions completed</span>
+            <a href="assessment-setup.html?subject=${sub.id}" style="font-weight: 600;">Practise &rarr;</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

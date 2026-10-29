@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice Assessment - AI Inclusive Assessment System</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/assessment.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/storage.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/subjects.js"></script>
+  <script src="js/assessment.js"></script>
+</head>
+<body class="assessment-shell">
+  <a href="#questionMain" class="skip-link">Skip to question</a>
+
+  <!-- Sticky Assessment Header -->
+  <header class="assessment-header" role="banner">
+    <div class="assessment-header-content">
+      <div class="assessment-header-left">
+        <button type="button" class="btn btn-outline btn-sm" id="btnExitAssessment" title="Exit practice module">
+          &larr; Exit
+        </button>
+        <div class="assessment-meta-info">
+          <span class="assessment-subject-name" id="assessmentSubject">Mathematics</span>
+          <span class="assessment-topic-name" id="assessmentTopic">Linear Equations</span>
+        </div>
+      </div>
+
+      <div class="assessment-header-center">
+        <div class="assessment-progress-text" id="assessmentProgressText">
+          Question 1 of 5 &bull; 0 answered
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="assessmentProgressFill" style="width: 20%;"></div>
+        </div>
+      </div>
+
+      <div class="assessment-header-right">
+        <div class="timer-pill" id="assessmentTimer" title="Assessment timer" role="timer" aria-live="off">
+          <span aria-hidden="true">&#9201;</span>
+          <span id="timerDisplay">10:00</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" id="btnSubmitAssessment" style="display: none;">
+          Submit
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Assessment Body Split: Question Area & Question Palette -->
+  <main class="assessment-body" id="questionMain">
+    <!-- Center / Main Question Column -->
+    <section class="question-column" aria-label="Question Content">
+      <!-- Read Aloud Toolbar -->
+      <div class="speech-bar" role="toolbar" aria-label="Audio reading controls">
+        <div style="font-size: var(--font-size-xs); font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">
+          <span>&#128266;</span>
+          <span>Read-Aloud Support</span>
+        </div>
+        <div class="speech-controls">
+          <button type="button" class="speech-btn" id="btnReadAloud" title="Read question aloud">
+            &#9654; Speak Question
+          </button>
+          <button type="button" class="speech-btn" id="btnStopSpeech" title="Stop speech">
+            &#9209; Stop
+          </button>
+        </div>
+      </div>
+
+      <!-- Question Box -->
+      <div class="question-card" role="region" aria-label="Current multiple choice question">
+        <div class="question-status-bar">
+          <span class="question-indicator-badge" id="questionIndicator">Question 1 of 5 (Standard)</span>
+          <span style="font-size: var(--font-size-xs); color: var(--text-light);">Use keys 1-4 to select</span>
+        </div>
+
+        <h2 class="question-text" id="questionText">
+          Solve for x in the equation: 3x + 7 = 22
+        </h2>
+
+        <!-- Optional Question Diagram / Visual -->
+        <div id="questionDiagramWrapper" style="display: none; text-align: center; margin-bottom: 1.5rem;">
+          <img id="questionDiagramImg" src="" alt="Assessment visual diagram" style="max-height: 200px; margin: 0 auto; border-radius: var(--border-radius-md);">
+        </div>
+
+        <!-- Options List -->
+        <div class="options-list" id="optionsContainer" role="radiogroup" aria-label="Answer options">
+          <!-- Dynamically populated options -->
+        </div>
+      </div>
+
+      <!-- Navigation & Action Controls -->
+      <div class="assessment-nav-bar">
+        <div class="assessment-nav-left">
+          <button type="button" class="btn btn-outline" id="btnPrevQuestion" disabled>
+            &larr; Previous
+          </button>
+          <button type="button" class="btn btn-outline" id="btnSkipQuestion">
+            Skip &rarr;
+          </button>
+        </div>
+
+        <div class="assessment-nav-right">
+          <button type="button" class="btn btn-outline" id="btnFlagQuestion">
+            &#9872; Flag for Review
+          </button>
+          <button type="button" class="btn btn-primary" id="btnNextQuestion">
+            Next Question &rarr;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Sidebar Palette Column -->
+    <aside class="palette-card" aria-label="Question Navigator">
+      <h3 class="palette-title">Question Navigator</h3>
+      <div class="palette-grid" id="paletteGrid">
+        <!-- Palette numbers 1..N inserted dynamically -->
+      </div>
+
+      <div class="palette-legend">
+        <div class="legend-item">
+          <div class="legend-indicator" style="background: var(--color-brand-light); border-color: #a5b4fc;"></div>
+          <span>Answered</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-indicator" style="background: var(--bg-surface-alt);"></div>
+          <span>Unanswered</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-indicator" style="position: relative;">
+            <span style="position: absolute; top: 1px; right: 1px; width: 6px; height: 6px; background: var(--color-warning); border-radius: 50%;"></span>
+          </div>
+          <span>Flagged for Review</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.auth.requireAuth();
+
+      const params = new URLSearchParams(window.location.search);
+      const subject = params.get('subject') || 'math';
+      const topic = params.get('topic') || 'algebra';
+      const count = parseInt(params.get('count'), 10) || 5;
+      const timed = params.get('timed') !== '0';
+
+      // Check if topic is geometry to showcase diagram SVG
+      if (topic === 'geometry') {
+        const diagramWrapper = document.getElementById('questionDiagramWrapper');
+        const diagramImg = document.getElementById('questionDiagramImg');
+        diagramWrapper.style.display = 'block';
+        diagramImg.src = 'assets/images/triangle.svg';
+      }
+
+      // Initialize Assessment Engine
+      window.assessmentEngine.init(subject, topic, count, timed);
+    });
+  </script>
+</body>
+</html>

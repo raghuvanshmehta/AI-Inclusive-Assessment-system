@@ -1,0 +1,334 @@
+/* ==========================================================================
+   AI Inclusive Assessment System - Core Design System & CSS Variables
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Deep Navy / Indigo with Teal / Emerald accents */
+  --color-primary: #1e293b;
+  --color-primary-dark: #0f172a;
+  --color-primary-light: #334155;
+  --color-brand: #4338ca;
+  --color-brand-hover: #3730a3;
+  --color-brand-light: #e0e7ff;
+  
+  --color-accent: #0d9488;
+  --color-accent-hover: #0f766e;
+  --color-accent-light: #ccfbf1;
+  --color-accent-dark: #115e59;
+
+  --color-success: #10b981;
+  --color-success-light: #d1fae5;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+  --color-danger: #ef4444;
+  --color-danger-light: #fee2e2;
+  --color-info: #0284c7;
+  --color-info-light: #e0f2fe;
+
+  /* Neutrals & Surfaces */
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f1f5f9;
+  --bg-muted: #e2e8f0;
+  
+  /* Text Colors */
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-light: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* Borders & Dividers */
+  --border-color: #e2e8f0;
+  --border-focus: #4338ca;
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  --border-radius-full: 9999px;
+
+  /* Typography */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-dyslexic: "Lexend", "Comic Sans MS", "Arial Rounded MT Bold", sans-serif;
+  --font-family-current: var(--font-family-base);
+
+  --font-size-base: 16px;
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem;  /* 36px */
+
+  --line-height-base: 1.6;
+  --letter-spacing-base: 0;
+  --word-spacing-base: 0;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Focus Ring */
+  --focus-ring-width: 3px;
+  --focus-ring-color: #4338ca;
+  --focus-ring-offset: 2px;
+}
+
+/* ==========================================================================
+   Accessibility Themes & Category Overrides
+   ========================================================================== */
+
+/* High Contrast Mode (Low Vision preference) */
+body.theme-high-contrast {
+  --bg-page: #000000;
+  --bg-surface: #121212;
+  --bg-surface-alt: #1f1f1f;
+  --bg-muted: #333333;
+  --text-main: #ffffff;
+  --text-muted: #e0e0e0;
+  --text-light: #cccccc;
+  --border-color: #ffffff;
+  --color-brand: #ffff00;
+  --color-brand-hover: #ffff66;
+  --color-brand-light: #222200;
+  --color-accent: #00ffff;
+  --color-accent-light: #003333;
+  --color-success: #00ff66;
+  --color-warning: #ffaa00;
+  --color-danger: #ff4444;
+  --focus-ring-color: #ffff00;
+  --focus-ring-width: 4px;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: 0 0 0 2px #ffffff;
+}
+
+body.theme-high-contrast * {
+  border-color: #ffffff !important;
+}
+
+body.theme-high-contrast a,
+body.theme-high-contrast button.btn-primary {
+  color: #000000 !important;
+  background-color: #ffff00 !important;
+  font-weight: 700 !important;
+}
+
+body.theme-high-contrast button.btn-secondary,
+body.theme-high-contrast button.btn-outline {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  border: 2px solid #ffffff !important;
+}
+
+/* Dyslexia Mode */
+body.theme-dyslexia {
+  --font-family-current: var(--font-family-dyslexic);
+  --line-height-base: 1.9;
+  --letter-spacing-base: 0.06em;
+  --word-spacing-base: 0.12em;
+}
+
+body.theme-dyslexia p,
+body.theme-dyslexia span,
+body.theme-dyslexia li,
+body.theme-dyslexia h1,
+body.theme-dyslexia h2,
+body.theme-dyslexia h3,
+body.theme-dyslexia h4,
+body.theme-dyslexia button,
+body.theme-dyslexia input {
+  letter-spacing: var(--letter-spacing-base);
+  word-spacing: var(--word-spacing-base);
+  line-height: var(--line-height-base);
+  text-align: left !important;
+}
+
+/* ADHD / Focus Mode */
+body.theme-adhd {
+  --transition-fast: 0ms;
+  --transition-normal: 0ms;
+  --transition-slow: 0ms;
+}
+
+body.theme-adhd .distraction-sensitive {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+}
+
+/* Text Size Variations */
+body.text-size-sm { font-size: 14px; }
+body.text-size-md { font-size: 16px; }
+body.text-size-lg { font-size: 18px; }
+body.text-size-xl { font-size: 20px; }
+body.text-size-2xl { font-size: 22px; }
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body.reduced-motion *,
+body.reduced-motion *::before,
+body.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ==========================================================================
+   CSS Reset & Base Styles
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family-current);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: var(--line-height-base);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible Focus States */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Skip link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: var(--color-brand);
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 9999;
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+h1 { font-size: var(--font-size-3xl); margin-bottom: var(--spacing-md); }
+h2 { font-size: var(--font-size-2xl); margin-bottom: var(--spacing-sm); }
+h3 { font-size: var(--font-size-xl); margin-bottom: var(--spacing-xs); }
+h4 { font-size: var(--font-size-lg); }
+
+p {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-brand);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-brand-hover);
+  text-decoration: underline;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-muted);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-muted { color: var(--text-muted); }
+.text-brand { color: var(--color-brand); }
+.text-accent { color: var(--color-accent); }
+.text-success { color: var(--color-success); }
+.text-danger { color: var(--color-danger); }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-xs { gap: var(--spacing-xs); }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1 1 0%; }
+
+.w-full { width: 100%; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
